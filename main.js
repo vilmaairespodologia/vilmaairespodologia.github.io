@@ -4,6 +4,24 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+ // Lógica do Menu Mobile
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  // Animação simples das barrinhas (opcional)
+  menuToggle.classList.toggle('open');
+});
+
+// Fechar o menu ao clicar em qualquer link (para navegar para a seção)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+
   /* ── NAV: adiciona classe "scrolled" ao fazer scroll ── */
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
@@ -121,5 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
     waBtn.addEventListener('mouseenter', () => { tooltip.style.opacity = '1'; });
     waBtn.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
   }
-
 });
